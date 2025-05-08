@@ -1,20 +1,23 @@
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Separator } from "@/components/ui/separator"
-import type { SimulationResult } from "@/types/network-simulator"
-import { AlertCircle, ArrowDown, ArrowRight, CheckCircle2 } from "lucide-react"
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import type { SimulationResult } from "@/types/network-simulator";
+import { AlertCircle, ArrowDown, ArrowRight, CheckCircle2 } from "lucide-react";
 
 interface ProcessStepsProps {
-  result: SimulationResult
-  useHamming: boolean
-  useNoise: boolean
+  result: SimulationResult;
+  useHamming: boolean;
+  useNoise: boolean;
 }
 
-export default function ProcessSteps({ result, useHamming, useNoise }: ProcessStepsProps) {
-  // Function to format binary data with spaces for readability
+export default function ProcessSteps({
+  result,
+  useHamming,
+  useNoise,
+}: ProcessStepsProps) {
   const formatBinary = (binary: string) => {
-    return binary.match(/.{1,4}/g)?.join(" ") || binary
-  }
+    return binary.match(/.{1,4}/g)?.join(" ") || binary;
+  };
 
   return (
     <div className="space-y-6">
@@ -31,16 +34,22 @@ export default function ProcessSteps({ result, useHamming, useNoise }: ProcessSt
               <CardTitle className="text-sm">Original Binary</CardTitle>
             </CardHeader>
             <CardContent className="py-2">
-              <code className="text-xs break-all">{formatBinary(result.binary)}</code>
+              <code className="text-xs break-all">
+                {formatBinary(result.binary)}
+              </code>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader className="py-3">
-              <CardTitle className="text-sm">Encoded Data {useHamming && "(with Hamming)"}</CardTitle>
+              <CardTitle className="text-sm">
+                Encoded Data {useHamming && "(with Hamming)"}
+              </CardTitle>
             </CardHeader>
             <CardContent className="py-2">
-              <code className="text-xs break-all">{formatBinary(result.encoded)}</code>
+              <code className="text-xs break-all">
+                {formatBinary(result.encoded)}
+              </code>
             </CardContent>
           </Card>
         </div>
@@ -69,7 +78,9 @@ export default function ProcessSteps({ result, useHamming, useNoise }: ProcessSt
                   <CardTitle className="text-sm">Received Noisy Data</CardTitle>
                 </CardHeader>
                 <CardContent className="py-2">
-                  <code className="text-xs break-all">{formatBinary(result.noisy)}</code>
+                  <code className="text-xs break-all">
+                    {formatBinary(result.noisy)}
+                  </code>
                 </CardContent>
               </Card>
 
@@ -82,7 +93,9 @@ export default function ProcessSteps({ result, useHamming, useNoise }: ProcessSt
                     <Alert variant="destructive">
                       <AlertCircle className="h-4 w-4" />
                       <AlertTitle>Error Detected</AlertTitle>
-                      <AlertDescription>Bit #{result.flippedIndex + 1} was flipped</AlertDescription>
+                      <AlertDescription>
+                        Bit #{result.flippedIndex + 1} was flipped
+                      </AlertDescription>
                     </Alert>
                   </CardContent>
                 </Card>
@@ -92,10 +105,14 @@ export default function ProcessSteps({ result, useHamming, useNoise }: ProcessSt
 
           <Card>
             <CardHeader className="py-3">
-              <CardTitle className="text-sm">Decoded Binary {useHamming && "(Error Corrected)"}</CardTitle>
+              <CardTitle className="text-sm">
+                Decoded Binary {useHamming && "(Error Corrected)"}
+              </CardTitle>
             </CardHeader>
             <CardContent className="py-2">
-              <code className="text-xs break-all">{formatBinary(result.outputBinary)}</code>
+              <code className="text-xs break-all">
+                {formatBinary(result.outputBinary)}
+              </code>
             </CardContent>
           </Card>
 
@@ -115,9 +132,10 @@ export default function ProcessSteps({ result, useHamming, useNoise }: ProcessSt
 
       <div className="flex items-center justify-center text-sm text-muted-foreground mt-4">
         <ArrowRight className="h-4 w-4 mr-2" />
-        <span>Switch to the Signal Visualization tab to see the encoded signal</span>
+        <span>
+          Switch to the Signal Visualization tab to see the encoded signal
+        </span>
       </div>
     </div>
-  )
+  );
 }
-
