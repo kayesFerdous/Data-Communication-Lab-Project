@@ -108,9 +108,9 @@ export default function SignalVisualization({ signal, originalBits, encoding }: 
   const svgWidth = Math.max(600, signal.length * bitWidth)
 
   // Get the appropriate color for a signal value
-  const getSignalColor = (value: number) => {
-    return value === 0 ? "#9ca3af" : "#3b82f6"
-  }
+  // const getSignalColor = (value: number) => {
+  //   return value === 0 ? "#9ca3af" : "#3b82f6"
+  // }
 
   return (
     <Card>

@@ -133,12 +133,12 @@ export default function Home() {
                 <Code2 className="mr-2 h-5 w-5" />
                 Simulation Results
               </CardTitle>
-              <CardDescription>View the transmission process and results</CardDescription>
+              <CardDescription>View the transmission process and &quot;results&quot;</CardDescription>
             </CardHeader>
             <CardContent>
               {!result ? (
                 <div className="flex flex-col items-center justify-center py-12 text-center text-muted-foreground">
-                  <p>Enter text and click "Simulate Transmission" to see results</p>
+                  <p>Enter text and click &quot;Simulate Transmission&quot; to see results</p>
                 </div>
               ) : (
                 <Tabs defaultValue="process" className="w-full">
